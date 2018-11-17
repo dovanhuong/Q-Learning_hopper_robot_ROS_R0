@@ -8,5 +8,5 @@ In order to run this training algorithm, you should follows steps as below:<br>
     $ roslaunch my_legged_robots_sims main.launch
  3. Launch Q-Training for hopper robot.<br>
     $ roslaunch my_hopper_training main.launch
-If you have any issue or problem, contact to me via: vanhuong.robotics@gmail.com
+<br>If you have any issue or problem, contact to me via: vanhuong.robotics@gmail.com
 
