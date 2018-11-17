@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <rosparam file="$(find my_legged_robots_sims)/config/monoped.yaml"
+            command="load"/>
+
+  <node name="robot_state_publisher_monoped" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <param name="publish_frequency" type="double" value="30.0" />
+            <param name="ignore_timestamp" type="bool" value="true" />
+            <param name="tf_prefix" type="string" value="monoped" />
+            <remap from="/joint_states" to="/monoped/joint_states" />
+        </node>
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--namespace=/monoped
+                              joint_state_controller
+                              haa_joint_position_controller
+                              hfe_joint_position_controller
+                              kfe_joint_position_controller
+                              --shutdown-timeout 3">
+  </node>
+
+</launch>
